@@ -623,7 +623,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 92.599 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 79.8, 80.07, 403.87, 415 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -746,7 +746,7 @@
 /**
  * The BLTouch probe uses a Hall effect sensor and emulates a servo.
  */
-//#define BLTOUCH
+#define BLTOUCH
 #if ENABLED(BLTOUCH)
   //#define BLTOUCH_DELAY 375   // (ms) Enable and increase if needed
 #endif
@@ -795,9 +795,9 @@
  *      O-- FRONT --+
  *    (0,0)
  */
-#define X_PROBE_OFFSET_FROM_EXTRUDER -30//-23  // X offset: -left  +right  [of the nozzle]
-#define Y_PROBE_OFFSET_FROM_EXTRUDER -3//0 // Y offset: -front +behind [the nozzle]
-#define Z_PROBE_OFFSET_FROM_EXTRUDER 0 //0  // Z offset: -below +above  [the nozzle]
+#define X_PROBE_OFFSET_FROM_EXTRUDER -29//-23  // X offset: -left  +right  [of the nozzle]
+#define Y_PROBE_OFFSET_FROM_EXTRUDER -22//0 // Y offset: -front +behind [the nozzle]
+#define Z_PROBE_OFFSET_FROM_EXTRUDER -1.7 //0  // Z offset: -below +above  [the nozzle]
 
 // Certain types of probes need to stay away from edges
 #define MIN_PROBE_EDGE 10
@@ -1019,7 +1019,7 @@
 #if ENABLED (U20_Pro_AutoBed)
 	#define AUTO_BED_LEVELING_BILINEAR
 #endif
-//#define AUTO_BED_LEVELING_BILINEAR
+#define AUTO_BED_LEVELING_BILINEAR
 //#define AUTO_BED_LEVELING_UBL
 //#define MESH_BED_LEVELING
 
@@ -1067,15 +1067,15 @@
 #if ENABLED (U20_Pro_AutoBed)
 	#define GRID_MAX_POINTS_X 4
 #else
-	//#define GRID_MAX_POINTS_X 3
+	#define GRID_MAX_POINTS_X 8
 #endif
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   // Set the boundaries for probing (where the probe can reach).
-  #define LEFT_PROBE_BED_POSITION  50
-  #define RIGHT_PROBE_BED_POSITION 210
-  #define FRONT_PROBE_BED_POSITION 47
-  #define BACK_PROBE_BED_POSITION  247
+  #define LEFT_PROBE_BED_POSITION  15
+  #define RIGHT_PROBE_BED_POSITION 190
+  #define FRONT_PROBE_BED_POSITION 15
+  #define BACK_PROBE_BED_POSITION  197
 
   // Probe along the Y axis, advancing X after each column
   //#define PROBE_Y_FIRST
@@ -1084,7 +1084,7 @@
 
     // Beyond the probed grid, continue the implied tilt?
     // Default is to maintain the height of the nearest edge.
-    //#define EXTRAPOLATE_BEYOND_GRID
+    // #define EXTRAPOLATE_BEYOND_GRID
 
     //
     // Experimental Subdivision of the grid by Catmull-Rom method.
@@ -1192,7 +1192,7 @@
 #if ENABLED (U20_Pro_AutoBed)
 	#define Z_SAFE_HOMING
 #else
-	//#define Z_SAFE_HOMING
+	#define Z_SAFE_HOMING
 #endif
 
 #if ENABLED(Z_SAFE_HOMING)
@@ -1979,7 +1979,7 @@
  * Set this manually if there are extra servos needing manual control.
  * Leave undefined or set to 0 to entirely disable the servo subsystem.
  */
-//#define NUM_SERVOS 3 // Servo index starts with 0 for M280 command
+#define NUM_SERVOS 1 // Servo index starts with 0 for M280 command
 
 // Delay (in milliseconds) before the next move will start, to give the servo time to reach its target angle.
 // 300ms is a good value but you can try less delay.
